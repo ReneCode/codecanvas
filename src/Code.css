@@ -1,0 +1,10 @@
+.code {
+  width: 100vw;
+  height: 250px;
+  resize: none;
+  outline: none;
+  font-size: 0.8rem;
+  font-family: monospace, "Courier New", Courier, monospace;
+  background-color: #e0e0e0;
+  border: none;
+}

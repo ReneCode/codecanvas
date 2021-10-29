@@ -1,0 +1,5 @@
+.scene {
+  background-color: #f0dcdc;
+  width: 100vw;
+  height: calc(100vh - 250px);
+}

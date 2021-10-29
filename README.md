@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# show graphic on text imput
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+[
+  { type: 'LINE', x1: 400, y1: 4, x2: 400, y2: 4, with: 0.25 },
+  { type: 'LINE', x1: 336, y1: 297, x2: 336, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 40, y1: 0, x2: 40, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 168, y1: 297, x2: 168, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 84, y1: 297, x2: 84, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 300, y1: 8, x2: 300, y2: 8, with: 0.25 },
+  { type: 'LINE', x1: 184, y1: 0, x2: 184, y2: 0, with: 0.35 },
+  { type: 'LINE', x1: 20, y1: 0, x2: 20, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 210, y1: 297, x2: 210, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 300, y1: 0, x2: 300, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 142, y1: 0, x2: 142, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 0, y1: 12, x2: 0, y2: 12, with: 0.25 },
+  { type: 'LINE', x1: 0, y1: 292, x2: 0, y2: 292, with: 0.35 },
+  { type: 'LINE', x1: 331, y1: 0, x2: 331, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 378, y1: 297, x2: 378, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 126, y1: 297, x2: 126, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 420, y1: 12, x2: 420, y2: 12, with: 0.25 },
+  { type: 'LINE', x1: 0, y1: 16, x2: 0, y2: 16, with: 0.35 },
+  { type: 'LINE', x1: 72, y1: 0, x2: 72, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 230, y1: 0, x2: 230, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 294, y1: 297, x2: 294, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 100, y1: 0, x2: 100, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 60, y1: 0, x2: 60, y2: 0, with: 0.35 },
+  { type: 'LINE', x1: 42, y1: 297, x2: 42, y2: 297, with: 0.25 },
+  { type: 'LINE', x1: 0, y1: 4, x2: 0, y2: 4, with: 0.25 },
+  { type: 'LINE', x1: 370, y1: 16, x2: 370, y2: 16, with: 0.25 },
+  { type: 'LINE', x1: 400, y1: 0, x2: 400, y2: 0, with: 0.25 },
+  { type: 'LINE', x1: 0, y1: 8, x2: 0, y2: 8, with: 0.25 },
+  { type: 'LINE', x1: 252, y1: 297, x2: 252, y2: 297, with: 0.25 }
+]
+```
