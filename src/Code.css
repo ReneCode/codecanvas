@@ -8,3 +8,7 @@
   background-color: #e0e0e0;
   border: none;
 }
+
+.error {
+  background-color: #e8b2b2;
+}

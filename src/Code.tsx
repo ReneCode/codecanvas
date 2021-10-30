@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./Code.css";
 import { NodeType } from "./types";
 import { debounce, textToJSON } from "./utils";
@@ -9,6 +9,7 @@ type Props = {
 
 const Code = ({ onChange }: Props) => {
   const [text, setText] = useState("");
+  const [error, setError] = useState(false);
 
   // useMemo to keep the debounce timer on re-render
   const applyChange = useMemo(
@@ -16,28 +17,31 @@ const Code = ({ onChange }: Props) => {
     [onChange]
   );
 
-  const changeCode = useCallback(
-    (code: string) => {
-      try {
-        const json = textToJSON(code);
-        let nodes = JSON.parse(json);
-        if (!Array.isArray(nodes)) {
-          nodes = [nodes];
-        }
-        applyChange(nodes);
-      } catch (err) {
-        console.error(err);
+  const changeCode = (code: string) => {
+    try {
+      const json = textToJSON(code);
+      let nodes = JSON.parse(json);
+      if (!Array.isArray(nodes)) {
+        nodes = [nodes];
       }
-    },
-    [applyChange]
-  );
+      applyChange(nodes);
+    } catch (err) {
+      console.error(err);
+
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+    }
+  };
 
   useEffect(() => {
-    const t =
-      '[ { type: "LINE", x1: 200, y1: 40, x2: 400, y2: 70, width: 0.25 } ]';
+    const t = `[ 
+  { type: "LINE", x1: -40, y1: -40, x2: 40, y2: 40, width: 2 },
+  { type: "RECT", x1: 10, y1: -70, x2: 100, y2: 70, width: 1 }
+]`;
     setText(t);
-    changeCode(t);
-  }, [changeCode]);
+  }, []);
 
   const handleChange = (ev: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = ev.target.value;
@@ -47,7 +51,7 @@ const Code = ({ onChange }: Props) => {
 
   return (
     <textarea
-      className="code"
+      className={error ? "code error" : "code"}
       value={text}
       onChange={handleChange}
       placeholder="enter graphic objects as code here"
