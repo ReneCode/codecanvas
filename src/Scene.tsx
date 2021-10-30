@@ -1,5 +1,4 @@
 import React from "react";
-import { threadId } from "worker_threads";
 import { Matrix } from "./Matrix";
 import { renderCanvas } from "./renderCanvas";
 import "./Scene.css";

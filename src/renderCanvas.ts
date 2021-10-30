@@ -10,12 +10,8 @@ export function renderCanvas(
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  const transformPoint = (x: number, y: number, m: any) => {
-    return { x, y };
-  };
-
   const renderLine = (line: LineNode) => {
-    const { x1, y1, x2, y2, color, width } = line;
+    const { x1, y1, x2, y2, width } = line;
     const { x: sx1, y: sy1 } = worldToScreenMatrix.transform({ x: x1, y: y1 });
     const { x: sx2, y: sy2 } = worldToScreenMatrix.transform({ x: x2, y: y2 });
     ctx.beginPath();
@@ -26,7 +22,7 @@ export function renderCanvas(
   };
 
   const renderRect = (rect: RectangleNode) => {
-    const { x1, y1, x2, y2, color, width } = rect;
+    const { x1, y1, x2, y2, width } = rect;
     const { x: sx1, y: sy1 } = worldToScreenMatrix.transform({ x: x1, y: y1 });
     const { x: sx2, y: sy2 } = worldToScreenMatrix.transform({ x: x2, y: y2 });
     ctx.beginPath();
