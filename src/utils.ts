@@ -33,7 +33,7 @@ export const textToJSON = (code: string) => {
       removeNextColon = false;
 
       //  [ ] { } ,
-      if (/[\[\]\{\}]/.test(t)) {
+      if (/[[]{}]/.test(t)) {
         return t;
       }
 

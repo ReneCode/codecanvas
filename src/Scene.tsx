@@ -1,33 +1,47 @@
 import { useEffect, useRef } from "react";
+import { renderCanvas } from "./renderCanvas";
 import "./Scene.css";
-import { textToJSON } from "./utils";
+import { NodeType } from "./types";
 
 type Prop = {
-  code: string;
+  nodes: NodeType[];
 };
 
-const Scene = ({ code }: Prop) => {
+const Scene = ({ nodes }: Prop) => {
   const rCanvas = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
+  const onResize = () => {
+    console.log(nodes);
     if (rCanvas.current) {
-      const ctx = rCanvas.current.getContext("2d");
-      if (!ctx) return;
-      const { width, height } = rCanvas.current;
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(0, 0, width, height);
+      const width = window.innerWidth;
+      const height = window.innerHeight - 250;
 
-      try {
-        const json = textToJSON(code);
-        console.log(json);
-        const obj = JSON.parse(json);
-        console.log(obj);
-      } catch (err) {
-        console.error(err);
-      }
+      const elCanvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+      elCanvas.width = width;
+      elCanvas.height = height;
+      elCanvas.style.width = `${width}px;`;
+      elCanvas.style.height = `${height}px;`;
+      redraw();
     }
-  }, [code]);
-  return <canvas ref={rCanvas} className="scene"></canvas>;
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    redraw();
+  }, [nodes]);
+
+  const redraw = () => {
+    if (rCanvas.current) {
+      renderCanvas(rCanvas.current, nodes);
+    }
+  };
+
+  return <canvas id="canvas" ref={rCanvas} className="scene"></canvas>;
 };
 
 export default Scene;

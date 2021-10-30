@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import "./App.css";
 import Code from "./Code";
 import Scene from "./Scene";
+import { NodeType } from "./types";
 
 const App = () => {
-  const [code, setCode] = useState("");
+  const [nodes, setNodes] = useState<NodeType[]>([]);
 
-  const onChangeCode = (text: string) => {
-    setCode(text);
+  const onChangeNodes = (nodes: NodeType[]) => {
+    setNodes(nodes);
   };
 
   return (
     <div className="App">
-      <Code onChange={onChangeCode}></Code>
-      <Scene code={code}></Scene>
+      <Code onChange={onChangeNodes}></Code>
+      <Scene nodes={nodes}></Scene>
     </div>
   );
 };
