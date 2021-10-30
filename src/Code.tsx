@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./Code.css";
 import { NodeType } from "./types";
 import { debounce, textToJSON } from "./utils";
@@ -16,24 +16,28 @@ const Code = ({ onChange }: Props) => {
     [onChange]
   );
 
-  const changeCode = (code: string) => {
-    try {
-      const json = textToJSON(code);
-      let nodes = JSON.parse(json);
-      if (!Array.isArray(nodes)) {
-        nodes = [nodes];
+  const changeCode = useCallback(
+    (code: string) => {
+      try {
+        const json = textToJSON(code);
+        let nodes = JSON.parse(json);
+        if (!Array.isArray(nodes)) {
+          nodes = [nodes];
+        }
+        applyChange(nodes);
+      } catch (err) {
+        console.error(err);
       }
-      applyChange(nodes);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    },
+    [applyChange]
+  );
 
   useEffect(() => {
     const t =
       '[ { type: "LINE", x1: 200, y1: 40, x2: 400, y2: 70, width: 0.25 } ]';
     setText(t);
-  }, []);
+    changeCode(t);
+  }, [changeCode]);
 
   const handleChange = (ev: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = ev.target.value;
