@@ -11,7 +11,8 @@ const Code = ({ onChange }: Props) => {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    const t = '{ type: "LINE", x1: 200, y1: 40, x2: 400, y2: 70, with: 0.25 }';
+    const t =
+      '[ { type: "LINE", x1: 200, y1: 40, x2: 400, y2: 70, width: 0.25 } ]';
     setText(t);
     changeCode(t);
   }, []);
@@ -31,7 +32,6 @@ const Code = ({ onChange }: Props) => {
   const changeCode = (code: string) => {
     try {
       const json = textToJSON(code);
-      console.log(json);
       let nodes = JSON.parse(json);
       if (!Array.isArray(nodes)) {
         nodes = [nodes];
@@ -43,7 +43,13 @@ const Code = ({ onChange }: Props) => {
   };
 
   return (
-    <textarea className="code" value={text} onChange={handleChange}></textarea>
+    <textarea
+      className="code"
+      value={text}
+      onChange={handleChange}
+      placeholder="enter graphic objects as code here"
+      autoFocus={true}
+    ></textarea>
   );
 };
 
