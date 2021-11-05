@@ -38,7 +38,9 @@ const Code = ({ onChange }: Props) => {
   useEffect(() => {
     const t = `[ 
   { type: "LINE", x1: -40, y1: -40, x2: 40, y2: 40, width: 2 },
-  { type: "RECT", x1: 10, y1: -70, x2: 100, y2: 70, width: 1 }
+  { type: "RECT", x1: 10, y1: -70, x2: 100, y2: 70, width: 1 },
+  { type: "POLYLINE", points: [100, 100, 150, 150, 100, 150, 150, 100, 125, 100] },
+  { type: "ARC", x: 50, y: 50, r: 10, a1: 1, a2: 5, width: 1 }
 ]`;
     setText(t);
   }, []);

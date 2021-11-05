@@ -44,4 +44,20 @@ describe("JsObjectToJSON", () => {
       '{ "type": "LINE", "x1": 400, "y1": 4, "x2": 400, "y2": 4, "with": 0.25 }';
     expect(textToJSON(js)).toBe(exp);
   });
+
+  it("polyline", () => {
+    const js = `{ type: "POLYLINE", points: [ 100, 100, 150, 150, 100, 150, 150, 100, 125, 100 ] }`;
+    const exp =
+      '{ "type": "POLYLINE", "points": [ 100, 100, 150, 150, 100, 150, 150, 100, 125, 100 ] }';
+
+    expect(textToJSON(js)).toBe(exp);
+  });
+
+  it("arc", () => {
+    const js = `{ type: "ARC", x: 50, y: 50, r: 10, a1: 1, a2: 5 }`;
+    const exp =
+      '{ "type": "ARC", "x": 50, "y": 50, "r": 10, "a1": 1, "a2": 5 }';
+
+    expect(textToJSON(js)).toBe(exp);
+  });
 });
