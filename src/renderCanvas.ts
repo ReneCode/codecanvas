@@ -48,7 +48,7 @@ export function renderCanvas(
     const r = zoom * arc.r;
     if (arc.a1 === 0 && arc.a1 === 0) {
     }
-    ctx.arc(x, y, r, arc.a1, arc.a2);
+    ctx.arc(x, y, r, arc.a1, arc.a2, true);
     ctx.stroke();
   };
 
